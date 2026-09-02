@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://fl8gbvpb4ha3" path="res://assests/Sprites/floor_texture.png" id="1_i2nf4"]
 [ext_resource type="PackedScene" uid="uid://cifptcly7aj32" path="res://scences/player.tscn" id="2_am3uj"]
+[ext_resource type="PackedScene" uid="uid://c31yeb2xbhasq" path="res://scences/zombie.tscn" id="3_8edsk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i2nf4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -47,3 +48,9 @@ shape = SubResource("BoxShape3D_nx17a")
 
 [node name="Player" parent="." unique_id=2013868304 instance=ExtResource("2_am3uj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1641426, 1.0999985, 6.83694)
+
+[node name="Zombie" parent="." unique_id=324873803 instance=ExtResource("3_8edsk")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -5.65086, 0.1000023, -2.2752287)
+
+[node name="Zombie2" parent="." unique_id=1040082441 instance=ExtResource("3_8edsk")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -9.823172, -0.17517662, -15.200375)
