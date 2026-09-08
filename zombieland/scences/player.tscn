@@ -2,12 +2,21 @@
 
 [ext_resource type="Script" uid="uid://3fbjga4ohwk2" path="res://scripts/player.gd" id="1_hqvp4"]
 [ext_resource type="PackedScene" uid="uid://c7e1n4yv4qeu" path="res://scences/weapon.tscn" id="2_3j5lm"]
+[ext_resource type="Texture2D" uid="uid://2r0d0nikdcw4" path="res://assests/Sprites/crosshair.png" id="3_efpdg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hbu4s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqvp4"]
 
-[node name="Player" type="CharacterBody3D" unique_id=2013868304]
+[sub_resource type="LabelSettings" id="LabelSettings_3j5lm"]
+font_size = 80
+font_color = Color(1, 0.84313726, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0.9471994, 0.9471994, 0.9471994, 0)
+
+[node name="Player" type="CharacterBody3D" unique_id=2013868304 groups=["player1"]]
 script = ExtResource("1_hqvp4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=860254401]
@@ -25,3 +34,19 @@ current = true
 
 [node name="Weapon" parent="head/Camera3D" unique_id=316936842 instance=ExtResource("2_3j5lm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.439, -0.364, -0.77)
+
+[node name="Label" type="Label" parent="head/Camera3D" unique_id=1224587589]
+offset_right = 356.0
+offset_bottom = 117.0
+text = " 50 / 50"
+label_settings = SubResource("LabelSettings_3j5lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D" unique_id=1323380864]
+offset_left = 572.0
+offset_top = 327.0
+offset_right = 636.0
+offset_bottom = 391.0
+texture = ExtResource("3_efpdg")

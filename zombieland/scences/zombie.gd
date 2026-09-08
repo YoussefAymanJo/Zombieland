@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 	var dir = to_local(navigation_agent_3d.get_next_path_position()).normalized()
 	$holder.look_at(player.position)
-
+	$holder.rotation.x= 0
 	velocity = dir * speed
 	move_and_slide()
 
@@ -25,3 +25,9 @@ func make_path():
 func _on_timer_timeout() -> void:
 	make_path()
 	pass
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player1"):
+		body.kill()
+	pass # Replace with function body.

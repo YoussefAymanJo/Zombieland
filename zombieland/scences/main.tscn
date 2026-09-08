@@ -34,7 +34,13 @@ uv1_scale = Vector3(30, 20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nx17a"]
 size = Vector3(50, 0.2, 50)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8edsk"]
+albedo_color = Color(1, 0.84313726, 0, 1)
+albedo_texture = ExtResource("1_i2nf4")
+uv1_scale = Vector3(30, 20, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_8edsk"]
+material = SubResource("StandardMaterial3D_8edsk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3if0j"]
 size = Vector3(1, 0.9852295, 1)
@@ -52,12 +58,20 @@ shadow_enabled = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1641426, 1.0999985, 6.83694)
 
-[node name="Zombie" parent="." unique_id=324873803 instance=ExtResource("3_8edsk")]
+[node name="Zombie4" parent="." unique_id=324873803 instance=ExtResource("3_8edsk")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 14.6203, 0.24848461, -17.674011)
+speed = 20
+
+[node name="Zombie3" parent="." unique_id=774327096 instance=ExtResource("3_8edsk")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -11.073845, 0.3013215, -10.603079)
+speed = 20
+
+[node name="Zombie" parent="." unique_id=1475862298 instance=ExtResource("3_8edsk")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -5.65086, 0.16279775, -1.1471772)
 speed = 20
 
 [node name="Zombie2" parent="." unique_id=1040082441 instance=ExtResource("3_8edsk")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -9.823172, 0.43493366, -14.846388)
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -9.823172, 0.16719341, -14.846388)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=845562607]
 navigation_mesh = SubResource("NavigationMesh_8edsk")
@@ -71,12 +85,32 @@ surface_material_override/0 = SubResource("StandardMaterial3D_am3uj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor" unique_id=570286391]
 shape = SubResource("BoxShape3D_nx17a")
 
+[node name="Box2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=2134775606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.741716, 0.49715662, 12.633335)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Box2" unique_id=2095287193]
+mesh = SubResource("BoxMesh_8edsk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Box2" unique_id=2085950106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007385254, 0)
+shape = SubResource("BoxShape3D_3if0j")
+
 [node name="Box" type="StaticBody3D" parent="NavigationRegion3D" unique_id=919435137]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.637375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.870874, 0.64618874, 18.833912)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Box" unique_id=36686689]
 mesh = SubResource("BoxMesh_8edsk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Box" unique_id=1400828791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007385254, 0)
+shape = SubResource("BoxShape3D_3if0j")
+
+[node name="Box3" type="StaticBody3D" parent="NavigationRegion3D" unique_id=38752862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.649174, 0.74707985, -6.864723)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Box3" unique_id=932659956]
+mesh = SubResource("BoxMesh_8edsk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Box3" unique_id=317341581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007385254, 0)
 shape = SubResource("BoxShape3D_3if0j")

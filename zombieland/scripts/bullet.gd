@@ -12,3 +12,8 @@ func _on_body_entered(body: Node3D) -> void:
 		body.queue_free()
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+	pass # Replace with function body.
