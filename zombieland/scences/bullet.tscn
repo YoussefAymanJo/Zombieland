@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://iwsqw478y1qq"]
+
+[ext_resource type="Script" uid="uid://pi5g73h1xpt7" path="res://scripts/bullet.gd" id="1_kguns"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_24c47"]
+radius = 0.2
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kguns"]
+albedo_color = Color(1, 0.84313726, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vrkb4"]
+radius = 0.25
+height = 2.5
+
+[node name="Bullet" type="Area3D" unique_id=1680777214]
+script = ExtResource("1_kguns")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=835205254]
+transform = Transform3D(0.099990256, 0.0013962181, -6.103063e-11, 0, -4.371139e-09, -0.1, -0.0013962181, 0.099990256, -4.370713e-09, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_24c47")
+surface_material_override/0 = SubResource("StandardMaterial3D_kguns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=758308476]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_vrkb4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

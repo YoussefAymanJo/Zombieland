@@ -8,6 +8,11 @@ extends CharacterBody3D
 @onready var head: Node3D = $head
 @onready var camera_3d: Camera3D = $head/Camera3D
 
+@onready var weaponraycast: Node3D = $head/Camera3D/Weapon/RayCast3D
+@onready var weapon_anima: AnimationPlayer = $head/Camera3D/Weapon/AnimationPlayer
+var bullet_left = 50
+var bullet = preload("res://scences/bullet.tscn")
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func _unhandled_input(event: InputEvent) -> void:
@@ -22,7 +27,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	# Get the input direction and handle the movement/deceleration.
+	if Input.is_action_just_pressed("shoot") and bullet_left  > 0 :
+		if !weapon_anima.is_playing():
+			weapon_anima.play("shoot")
+			shoot()
+	if Input.is_action_just_pressed("reload") : 
+		weapon_anima.play("reload")
+		bullet_left = 50
+		# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -34,3 +46,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func shoot():
+	bullet_left -=1
+	var bullet_inst = bullet.instantiate()
+	bullet_inst.position  = weaponraycast.global_position
+	bullet_inst.transform.basis  = weaponraycast.global_transform.basis
+	get_parent().add_child(bullet_inst)
+	pass
