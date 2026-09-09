@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bx8l42jaj24s5"]
+
+[ext_resource type="Script" uid="uid://bys6tu488jhh3" path="res://scripts/main_menu.gd" id="1_5rel7"]
+[ext_resource type="Texture2D" uid="uid://jl3doih3wcig" path="res://assests/Screenshot 2026-09-09 111947.png" id="1_wa8ii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rel7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa8ii"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v7x5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4yld"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43s8q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Main_menu" type="Control" unique_id=1752897863]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5rel7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1246862212]
+modulate = Color(0.4636271, 0.48245525, 0.5232253, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wa8ii")
+
+[node name="Label" type="Label" parent="." unique_id=93113530]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 261.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Zombie Land"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=6990598]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -85.5
+offset_right = 74.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=350188824]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.09656381, 0.48257047, 0.7969662, 1)
+theme_override_colors/font_hover_color = Color(0.09803922, 0.48235294, 0.79607844, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5rel7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_5rel7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5rel7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5rel7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5rel7")
+text = "START"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=2106996359]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.09803922, 0.48235294, 0.79607844, 1)
+theme_override_colors/font_hover_color = Color(0.09803922, 0.48235294, 0.79607844, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wa8ii")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8v7x5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b4yld")
+theme_override_styles/focus = SubResource("StyleBoxFlat_43s8q")
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

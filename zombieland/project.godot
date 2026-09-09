@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Zombieland"
-run/main_scene="uid://c1qm2e6iaevp1"
+run/main_scene="uid://bx8l42jaj24s5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
