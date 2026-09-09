@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed = 10
+@export var speed = 2
 @export var gravity = -10.00
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
@@ -29,5 +29,5 @@ func _on_timer_timeout() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player1"):
-		body.kill()
-	pass # Replace with function body.
+		body.kill.call_deferred()
+		pass # Replace with function body.

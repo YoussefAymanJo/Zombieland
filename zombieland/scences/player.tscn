@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://3fbjga4ohwk2" path="res://scripts/player.gd" id="1_hqvp4"]
 [ext_resource type="PackedScene" uid="uid://c7e1n4yv4qeu" path="res://scences/weapon.tscn" id="2_3j5lm"]
 [ext_resource type="Texture2D" uid="uid://2r0d0nikdcw4" path="res://assests/Sprites/crosshair.png" id="3_efpdg"]
+[ext_resource type="AudioStream" uid="uid://csqasojq76s2d" path="res://assests/eaglaxle-gun-shot-2-530789.mp3" id="4_7khn4"]
+[ext_resource type="AudioStream" uid="uid://bvaxw04nnqyfi" path="res://assests/universfield-gun-reload-123781.mp3" id="5_7xwe5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hbu4s"]
 
@@ -15,6 +17,12 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 10
 shadow_color = Color(0.9471994, 0.9471994, 0.9471994, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_efpdg"]
+font_size = 40
+font_color = Color(0.6920155, 6.40139e-06, 0.45751512, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=2013868304 groups=["player1"]]
 script = ExtResource("1_hqvp4")
@@ -50,3 +58,21 @@ offset_top = 327.0
 offset_right = 636.0
 offset_bottom = 391.0
 texture = ExtResource("3_efpdg")
+
+[node name="Label2" type="Label" parent="head/Camera3D" unique_id=1552348253]
+offset_left = -24.0
+offset_top = 107.0
+offset_right = 296.0
+offset_bottom = 192.0
+text = "HP : 3 / 3 "
+label_settings = SubResource("LabelSettings_efpdg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gunsfx" type="AudioStreamPlayer3D" parent="." unique_id=360162842]
+stream = ExtResource("4_7khn4")
+bus = &"SFX"
+
+[node name="gunreload" type="AudioStreamPlayer3D" parent="." unique_id=752120767]
+stream = ExtResource("5_7xwe5")
+bus = &"SFX"
